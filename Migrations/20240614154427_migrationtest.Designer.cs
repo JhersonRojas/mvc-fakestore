@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mvc_fakestore.Database;
 
@@ -11,9 +12,11 @@ using mvc_fakestore.Database;
 namespace mvc_fakestore.Migrations
 {
     [DbContext(typeof(AplicacionDbContext))]
-    partial class AplicacionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240614154427_migrationtest")]
+    partial class migrationtest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,81 +114,6 @@ namespace mvc_fakestore.Migrations
                     b.HasKey("IdProveedor");
 
                     b.ToTable("Proveedores");
-                });
-
-            modelBuilder.Entity("mvc_fakestore.Models.Usuarios", b =>
-                {
-                    b.Property<int>("IdUsuario")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUsuario"));
-
-                    b.Property<DateTime?>("Actualizado")
-                        .HasMaxLength(30)
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Apellido")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<DateTime>("Creado")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Dni")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Rol")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telefono")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("IdUsuario");
-
-                    b.ToTable("Usuarios");
-                });
-
-            modelBuilder.Entity("mvc_fakestore.Models.Ventas", b =>
-                {
-                    b.Property<int>("IdVenta")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdVenta"));
-
-                    b.Property<string>("Cantidad")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<DateTime>("Creado")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Productos")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Total")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<int>("Usuario")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdVenta");
-
-                    b.ToTable("Ventas");
                 });
 #pragma warning restore 612, 618
         }

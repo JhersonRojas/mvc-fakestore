@@ -12,4 +12,10 @@ public class AplicacionDbContext : DbContext
     public DbSet<Proveedores> Proveedores { get; set; }
     public DbSet<Productos> Productos { get; set; }
     public DbSet<Categoria> Categorias { get; set; }
+    public DbSet<Usuarios> Usuarios { get; set; }
+    public DbSet<Ventas> Ventas { get; set; }
+
+XD
+
+
 }

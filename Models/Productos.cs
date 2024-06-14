@@ -43,4 +43,9 @@ public class Productos
 
     [ForeignKey("Proveedore")]
     public required string Proveedore { get; set; }
+
+
+    // Propiedad de navegación para las ventas
+    public required ICollection<Ventas> Ventas { get; set; }
+
 }

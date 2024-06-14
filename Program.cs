@@ -5,8 +5,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // configure la conecxion a sql
 builder.Services.AddDbContext<AplicacionDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("database"))
-);
+{
+    DotNetEnv.Env.Load();
+    var connection = Environment.GetEnvironmentVariable("DATABASE");
+    options.UseSqlServer(connection);
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
