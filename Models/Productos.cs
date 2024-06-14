@@ -38,8 +38,8 @@ public class Productos
     [StringLength(500)]
     public required string Descripcion { get; set; }
 
-    [ForeignKey("categoria")]
-    public required string Categoria { get; set; }
+    [ForeignKey("IdCategoria")]
+    public required string IdCategoria { get; set; }
 
     [ForeignKey("Proveedore")]
     public required string Proveedore { get; set; }

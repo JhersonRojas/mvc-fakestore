@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mvc_fakestore.Database;
 
@@ -11,9 +12,11 @@ using mvc_fakestore.Database;
 namespace mvc_fakestore.Migrations
 {
     [DbContext(typeof(AplicacionDbContext))]
-    partial class AplicacionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240614144554_InitialCreatedos")]
+    partial class InitialCreatedos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,24 +24,6 @@ namespace mvc_fakestore.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("mvc_fakestore.Models.Categoria", b =>
-                {
-                    b.Property<int>("IdCategoria")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCategoria"));
-
-                    b.Property<string>("IdProveedor")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("IdCategoria");
-
-                    b.ToTable("Categorias");
-                });
 
             modelBuilder.Entity("mvc_fakestore.Models.Productos", b =>
                 {
@@ -57,6 +42,10 @@ namespace mvc_fakestore.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
+                    b.Property<string>("Categoria")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("Creado")
                         .HasColumnType("datetime2");
 
@@ -66,10 +55,6 @@ namespace mvc_fakestore.Migrations
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IdCategoria")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
