@@ -6,7 +6,7 @@ namespace mvc_fakestore.Models;
 public class Productos
 {
     [Key]
-    public int IdProducto { get; set; }
+    public Guid IdProducto { get; set; }
 
     [Required(ErrorMessage = "El nombre es requerido")]
     [StringLength(150)]
@@ -26,26 +26,26 @@ public class Productos
 
     [Required(ErrorMessage = "El nombre del precio es rquerido.")]
     [StringLength(10)]
-    public required string Precio { get; set; }
+    public required int Precio { get; set; }
 
     [Required]
     public DateTime Creado { get; set; }
 
     [StringLength(100)]
-    public string? Actualizado { get; set; }
+    public DateTime Actualizado { get; set; }
 
     [Required(ErrorMessage = "la descripcion es requerida.")]
     [StringLength(500)]
     public required string Descripcion { get; set; }
 
     [ForeignKey("IdCategoria")]
-    public required string IdCategoria { get; set; }
+    public required int FkCategoria { get; set; }
+    public required Categorias Categorias { get; set; }
 
-    [ForeignKey("Proveedore")]
-    public required string Proveedore { get; set; }
-
+    [ForeignKey("IdProveedor")]
+    public required int FkProveedor { get; set; }
+    public required Proveedores Proveedores { get; set; }
 
     // Propiedad de navegación para las ventas
     public required ICollection<Ventas> Ventas { get; set; }
-
 }

@@ -6,7 +6,7 @@ namespace mvc_fakestore.Models;
 public class Ventas
 {
     [Key]
-    public int IdVenta { get; set; }
+    public Guid IdVenta { get; set; }
 
     [Required(ErrorMessage = "El nombre es obligatorio")]
     [StringLength(20)]
@@ -20,12 +20,10 @@ public class Ventas
     public DateTime Creado { get; set; }
 
     [ForeignKey("Productos")]
-    public int Productos { get; set; }
-    public required Productos Producto { get; set; }
-
+    public Guid FkProducto { get; set; }
+    public required Productos Productos { get; set; }
 
     [ForeignKey("Usuario")]
-    public int FkUsuario { get; set; }
+    public Guid FkUsuario { get; set; }
     public required Usuarios Usuarios { get; set; }
-
 }

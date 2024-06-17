@@ -12,4 +12,5 @@ public class Proveedores
 
     [Required(ErrorMessage = "El Telefono es obligatorio")]
     public required string Telefono { get; set; }
+    public required ICollection<Productos> Productos { get; set; }
 }
