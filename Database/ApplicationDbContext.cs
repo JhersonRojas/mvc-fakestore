@@ -57,5 +57,10 @@ public class AplicacionDbContext : DbContext
             .Property(p => p.IdProducto)
             .ValueGeneratedOnAdd()
             .HasDefaultValueSql("NEWID()");
+
+        modelBuilder
+            .Entity<Ventas>()
+            .Property(v => v.Creado)
+            .HasDefaultValue(DateTime.Now);
     }
 }

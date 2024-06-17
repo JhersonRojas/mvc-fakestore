@@ -17,7 +17,9 @@ public class Ventas
     public required string Total { get; set; }
 
     [Required]
-    public DateTime Creado { get; set; }
+    public DateTime? Creado { get; set; }
+
+    public DateTime? Actualizado { get; set; }
 
     [ForeignKey("Productos")]
     public Guid FkProducto { get; set; }
