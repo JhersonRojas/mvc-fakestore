@@ -29,10 +29,10 @@ public class Productos
     public required int Precio { get; set; }
 
     [Required]
-    public DateTime Creado { get; set; }
+    public required DateTime Creado { get; set; }
 
     [StringLength(100)]
-    public DateTime Actualizado { get; set; }
+    public DateTime? Actualizado { get; set; }
 
     [Required(ErrorMessage = "la descripcion es requerida.")]
     [StringLength(500)]
