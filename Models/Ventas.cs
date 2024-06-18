@@ -9,8 +9,7 @@ public class Ventas
     public Guid IdVenta { get; set; }
 
     [Required(ErrorMessage = "El nombre es obligatorio")]
-    [StringLength(20)]
-    public required string Cantidad { get; set; }
+    public required int Cantidad { get; set; }
 
     [Required(ErrorMessage = "El Total es obligatorio")]
     [StringLength(20)]

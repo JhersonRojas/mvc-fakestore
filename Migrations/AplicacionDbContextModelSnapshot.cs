@@ -51,10 +51,8 @@ namespace mvc_fakestore.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Cantidad")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Creado")
                         .HasColumnType("datetime2");
@@ -165,10 +163,8 @@ namespace mvc_fakestore.Migrations
                     b.Property<DateTime?>("Actualizado")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Cantidad")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Creado")
                         .HasColumnType("datetime2");
