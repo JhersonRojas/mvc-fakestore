@@ -15,8 +15,7 @@ public class Ventas
     [Required(ErrorMessage = "El Total es obligatorio")]
     [StringLength(20)]
     public required string Total { get; set; }
-
-    [Required]
+    
     public DateTime? Creado { get; set; }
 
     public DateTime? Actualizado { get; set; }

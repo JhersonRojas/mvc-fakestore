@@ -161,13 +161,20 @@ namespace mvc_fakestore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("Actualizado")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2024, 6, 18, 8, 45, 23, 315, DateTimeKind.Local).AddTicks(9594));
+
                     b.Property<string>("Cantidad")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<DateTime>("Creado")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("Creado")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2024, 6, 18, 8, 45, 23, 316, DateTimeKind.Local).AddTicks(973));
 
                     b.Property<Guid>("FkProducto")
                         .HasColumnType("uniqueidentifier");

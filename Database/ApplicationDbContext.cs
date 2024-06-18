@@ -58,8 +58,11 @@ public class AplicacionDbContext : DbContext
             .ValueGeneratedOnAdd()
             .HasDefaultValueSql("NEWID()");
 
-        modelBuilder
-            .Entity<Ventas>()
+        modelBuilder.Entity<Ventas>()
+            .Property(v => v.Actualizado)
+            .HasDefaultValue(DateTime.Now);
+            
+        modelBuilder.Entity<Ventas>()
             .Property(v => v.Creado)
             .HasDefaultValue(DateTime.Now);
     }
