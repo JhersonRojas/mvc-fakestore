@@ -21,8 +21,7 @@ public class Productos
     public required string Estado { get; set; }
 
     [Required(ErrorMessage = "El nombre de la cantidad es requerido.")]
-    [StringLength(10)]
-    public required string Cantidad { get; set; }
+    public required int Cantidad { get; set; }
 
     [Required(ErrorMessage = "El nombre del precio es rquerido.")]
     [StringLength(10)]
