@@ -60,7 +60,7 @@ namespace mvc_fakestore.Migrations
                 name: "Productos",
                 columns: table => new
                 {
-                    IdProducto = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdProducto = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "NEWID()"),
                     Nombre = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cantidad = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
@@ -92,7 +92,7 @@ namespace mvc_fakestore.Migrations
                 name: "Ventas",
                 columns: table => new
                 {
-                    IdVenta = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdVenta = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "NEWID()"),
                     Cantidad = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Total = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Creado = table.Column<DateTime>(type: "datetime2", nullable: false),
