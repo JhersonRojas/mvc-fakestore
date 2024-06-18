@@ -44,7 +44,8 @@ namespace mvc_fakestore.Migrations
                 {
                     b.Property<Guid>("IdProducto")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<DateTime?>("Actualizado")
                         .HasMaxLength(100)
@@ -158,7 +159,8 @@ namespace mvc_fakestore.Migrations
                 {
                     b.Property<Guid>("IdVenta")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<DateTime?>("Actualizado")
                         .HasColumnType("datetime2");

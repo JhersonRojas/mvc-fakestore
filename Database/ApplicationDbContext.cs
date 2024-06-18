@@ -51,8 +51,16 @@ public class AplicacionDbContext : DbContext
             .Property(p => p.IdUsuario)
             .ValueGeneratedOnAdd()
             .HasDefaultValueSql("NEWID()");
-
-
+        modelBuilder
+            .Entity<Productos>()
+            .Property(p => p.IdProducto)
+            .ValueGeneratedOnAdd()
+            .HasDefaultValueSql("NEWID()");
+        modelBuilder
+            .Entity<Ventas>()
+            .Property(p => p.IdVenta)
+            .ValueGeneratedOnAdd()
+            .HasDefaultValueSql("NEWID()");
 
     }
 }
