@@ -1,7 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using mvc_fakestore.Database;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ApplicationDbContext") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContext' not found.")));
 
 // configure la conecxion a sql
 builder.Services.AddDbContext<AplicacionDbContext>(options =>
@@ -13,6 +16,7 @@ builder.Services.AddDbContext<AplicacionDbContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 
 var app = builder.Build();
 

@@ -3,5 +3,8 @@
   "editor.defaultFormatter": "csharpier.csharpier-vscode",
   "[csharp]": {
     "editor.defaultFormatter": "csharpier.csharpier-vscode"
+  },
+  "[aspnetcorerazor]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
   }
 }

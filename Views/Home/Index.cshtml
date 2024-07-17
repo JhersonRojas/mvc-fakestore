@@ -1,8 +1,90 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<mvc_fakestore.Models.Productos>
+@{
+    ViewData["Title"] = "XD productos ";
 }
+<header>
+    <h1 class="text-center">Contacto con .NET 7 (.NET Core MVC) </h1>
+</header>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome To DotNet</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<main>
+    <section>
+        <div class="row">
+            <div class="offset-9 col-3 mb-3">
+                <nav>
+                    <a asp-action="productos" asp-controller="Inicio"
+                        class="btn btn-secondary d-block mx-auto btn-lg ">Nuevo Producto
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="row">
+        <div class="offset-12">
+            <div class="card border">
+                <header class="card-header bg-dark">
+                    <h3 class="text-white"><strong>Lista de usuarios</strong></h3>
+                </header>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        @if (Model != null && Model.Count() > 0)
+                        {
+                            <table class="table table-bordered" id="tblUsuarios" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(m => m.IdProducto)</th>
+                                        <th>@Html.DisplayNameFor(m => m.Nombre)</th>
+                                        <th>@Html.DisplayNameFor(m => m.Estado)</th>
+                                        <th>@Html.DisplayNameFor(m => m.Cantidad)</th>
+                                        <th>@Html.DisplayNameFor(m => m.Precio)</th>
+                                        <th>@Html.DisplayNameFor(m => m.Creado)</th>
+                                        <th>@Html.DisplayNameFor(m => m.Actualizado)</th>
+                                        <th>@Html.DisplayNameFor(m => m.Descripcion)</th>
+                                        <th>@Html.DisplayNameFor(m => m.FkCategoria)</th>
+                                        <th>@Html.DisplayNameFor(m => m.FkProveedor)</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <th>@Html.DisplayFor(m => item.IdProducto)</th>
+                                            <th>@Html.DisplayFor(m => item.Nombre)</th>
+                                            <th>@Html.DisplayFor(m => item.Estado)</th>
+                                            <th>@Html.DisplayFor(m => item.Cantidad)</th>
+                                            <th>@Html.DisplayFor(m => item.Precio)</th>
+                                            <th>@Html.DisplayFor(m => item.Creado)</th>
+                                            <th>@Html.DisplayFor(m => item.Actualizado)</th>
+                                            <th>@Html.DisplayFor(m => item.Descripcion)</th>
+                                            <th>@Html.DisplayFor(m => item.FkCategoria)</th>
+                                            <th>@Html.DisplayFor(m => item.FkProveedor)</th>
+                                            <td>
+                                                <a class="btn btn-warning" asp-action="Editar"
+                                                    asp-route-id="@item.IdProducto">Editar</a>
+                                                <a class="btn btn-secondary" asp-action="Detalle"
+                                                    asp-route-id="@item.IdProducto">Detalle</a>
+                                                <a class="btn btn-danger" asp-action="Borrar"
+                                                    asp-route-id="@item.IdProducto">Borrar</a>
+
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+
+
+                            </table>
+                        }
+                        else
+                        {
+                            <p>No hay registro</p>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
