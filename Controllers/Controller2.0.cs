@@ -6,8 +6,3 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using mvc_fakestore.Models;
-
-namespace mvc_fakestore.Controllers
-{   
-}
-  

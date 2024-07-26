@@ -11,8 +11,7 @@
         <div class="row">
             <div class="offset-9 col-3 mb-3">
                 <nav>
-                    <a asp-action="productos" asp-controller="Inicio"
-                        class="btn btn-secondary d-block mx-auto btn-lg ">Nuevo Producto
+                    <a asp-action="crear" asp-controller="Inicio"class="btn btn-secondary d-block mx-auto btn-lg"><i class="bi bi-plus-circle"></i> Nuevo Producto
                     </a>
                 </nav>
             </div>
@@ -29,36 +28,36 @@
                     <div class="table-responsive">
                         @if (Model != null && Model.Count() > 0)
                         {
-                            <table class="table table-bordered" id="tblUsuarios" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="tblUsuarios">
                                 <thead>
                                     <tr>
-                                        <th>@Html.DisplayNameFor(m => m.IdProducto)</th>
-                                        <th>@Html.DisplayNameFor(m => m.Nombre)</th>
-                                        <th>@Html.DisplayNameFor(m => m.Estado)</th>
-                                        <th>@Html.DisplayNameFor(m => m.Cantidad)</th>
-                                        <th>@Html.DisplayNameFor(m => m.Precio)</th>
-                                        <th>@Html.DisplayNameFor(m => m.Creado)</th>
-                                        <th>@Html.DisplayNameFor(m => m.Actualizado)</th>
-                                        <th>@Html.DisplayNameFor(m => m.Descripcion)</th>
-                                        <th>@Html.DisplayNameFor(m => m.FkCategoria)</th>
-                                        <th>@Html.DisplayNameFor(m => m.FkProveedor)</th>
-                                        <th>Acciones</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.IdProducto)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Nombre)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Estado)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Cantidad)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Precio)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Creado)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Actualizado)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Descripcion)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.FkCategoria)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.FkProveedor)</th>
+                                        <th scope="col">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <th>@Html.DisplayFor(m => item.IdProducto)</th>
-                                            <th>@Html.DisplayFor(m => item.Nombre)</th>
-                                            <th>@Html.DisplayFor(m => item.Estado)</th>
-                                            <th>@Html.DisplayFor(m => item.Cantidad)</th>
-                                            <th>@Html.DisplayFor(m => item.Precio)</th>
-                                            <th>@Html.DisplayFor(m => item.Creado)</th>
-                                            <th>@Html.DisplayFor(m => item.Actualizado)</th>
-                                            <th>@Html.DisplayFor(m => item.Descripcion)</th>
-                                            <th>@Html.DisplayFor(m => item.FkCategoria)</th>
-                                            <th>@Html.DisplayFor(m => item.FkProveedor)</th>
+                                            <th scope="col">@Html.DisplayFor(m => item.IdProducto)</th>
+                                            <th scope="col">@Html.DisplayFor(m => item.Nombre)</th>
+                                            <th scope="col">@Html.DisplayFor(m => item.Estado)</th>
+                                            <th scope="col">@Html.DisplayFor(m => item.Cantidad)</th>
+                                            <th scope="col">@Html.DisplayFor(m => item.Precio)</th>
+                                            <th scope="col">@Html.DisplayFor(m => item.Creado)</th>
+                                            <th scope="col">@Html.DisplayFor(m => item.Actualizado)</th>
+                                            <th scope="col">@Html.DisplayFor(m => item.Descripcion)</th>
+                                            <th scope="col">@Html.DisplayFor(m => item.FkCategoria)</th>
+                                            <th scope="col">@Html.DisplayFor(m => item.FkProveedor)</th>
                                             <td>
                                                 <a class="btn btn-warning" asp-action="Editar"
                                                     asp-route-id="@item.IdProducto">Editar</a>
@@ -88,3 +87,30 @@
         </div>
     </section>
 </main>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#tblUsuarios').DataTable({
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando START a END de TOTAL Entradas",
+                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                    "infoFiltered": "(Filtrado de MAX total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar MENU Entradas",
+                    "loadingRecords": "Cargando...".
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                });
+        });
+    </script>
+}

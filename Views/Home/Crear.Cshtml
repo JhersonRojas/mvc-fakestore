@@ -1,0 +1,43 @@
+@model mvc_fakestore.Models.contacto
+@{
+    ViewData["Title"] = "XD Contactos";
+}
+<header>
+    <h1 class="text-center">crear nuevo contacto </h1>
+</header>
+
+<main>
+    <section>
+        <div class="row">
+            <div class="offset-9 col-3 mb-3">
+                <nav>
+                    <a asp-action="crear" asp-controller="Inicio"class="btn btn-secondary d-block mx-auto btn-lg"><i class="bi bi-plus-circle"></i> Nuevo Producto
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="row">
+        <div class="offset-12">
+            <div class="card border">
+                <header class="card-header bg-dark">
+                    <h3 class="text-white"><strong>crear nuevo contacto</strong></h3>
+                </header>
+                <div class="card-body">
+                    <form  asp-action="Crear" method="POST">
+                        <div asp-validation-sumary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group">
+                            <label asp-for="Nombre" class="control-label"></label>
+                            <input asp-for= "Nombre" class="form-control placeholder="Ingresa el nombre" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>   
+                        </div>    
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
